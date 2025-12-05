@@ -12,11 +12,17 @@ This tool is intended only for authorized and legitimate use. Users are fully re
 Create a `.env` file:
 
 WATCHED_ACCOUNT = 
+
 WATCHED_PRIVATE_KEY = 
+
 FUNDER_ACCOUNT= 
+
 FUNDER_PRIVATE_KEY= 
+
 RECEIVER_ACCOUNT = 
+
 API_URL = "https://eth-mainnet.g.alchemy.com/v2/YOUR_KEY"
+
 TOKEN_ADDRESS = 
 
 ## Usage
