@@ -5,8 +5,8 @@ const logger = require("./logger");
 const {
   WATCHED_ACCOUNT,
   WATCHED_PRIVATE_KEY,
-  FOUNDER_PRIVATE_KEY,
-  FOUNDER_ACCOUNT,
+  FUNDER_PRIVATE_KEY,
+  FUNDER_ACCOUNT,
   RECEIVER_ACCOUNT,
   API_URL,
   TOKEN_ADDRESS,
@@ -20,14 +20,14 @@ const ERC20_ABI = [
 
 let token;
 let watched_wallet;
-let founder_wallet;
+let funder_wallet;
 let decimal = 18;
 
 async function init() {
   const provider = new ethers.JsonRpcProvider(API_URL);
 
   watched_wallet = new ethers.Wallet(WATCHED_PRIVATE_KEY, provider);
-  founder_wallet = new ethers.Wallet(FOUNDER_PRIVATE_KEY, provider);
+  funder_wallet = new ethers.Wallet(FUNDER_PRIVATE_KEY, provider);
   token = new ethers.Contract(TOKEN_ADDRESS, ERC20_ABI, watched_wallet);
   const initialBalance = await token.balanceOf(WATCHED_ACCOUNT);
   logger.info(`Initial balance: ${ethers.formatUnits(initialBalance, decimal)} tokens`);
@@ -59,7 +59,7 @@ init()
 //   const required = ethers.parseEther(minimumMatic);
 
 //     try {
-//       const tx = await founder_wallet.sendTransaction({
+//       const tx = await funder_wallet.sendTransaction({
 //         to: WATCHED_ACCOUNT,
 //         value: required
 //       });
